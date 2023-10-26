@@ -4,7 +4,29 @@ body {
 
 .container {
     display: grid;
-    grid-gap: 10px;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 16px;
+    grid-template-columns: repeat(8, 12.5%);
+    grid-template-rows: repeat(8, 12.5%);
+}
+
+.card {
+    border-radius: 10px;
+    border-color: cornflowerblue;
+    height: 100px;
+    
+}
+
+#images{
+    height: 75%;
+    width: 50%;
+    margin: 30px;
+    padding: 10px;
+    grid-template-columns: repeat(4, 25%);
+    grid-template-rows: repeat(4, 25%);
+}
+
+img{
+    max-height: 25%;
+    max-width: 25%;
+    margin: 20px;
 }

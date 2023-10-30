@@ -24,16 +24,20 @@ for (i = 1; i <= 16; i++) {
 }
 
 
-let select = first;
 
+
+
+
+let cards = ["i1", "i2"]
 function randomizeCards() {
 
 }
 function flipcard() {
+
 }
 
-function match(){
-
+function match(c1, c2){
+    let matching = first.dataset
 }
 
 function removeCards(){

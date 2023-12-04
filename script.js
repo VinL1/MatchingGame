@@ -1,47 +1,50 @@
-const images {
-    i1 = document.getElementById("image1");
-    i2 = document.getElementById("image2");
-    i3 = document.getElementById("image3");
-    i4 = document.getElementById("image4");
-    i5 = document.getElementById("image5");
-    i6 = document.getElementById("image6");
-    i7 = document.getElementById("image7");
-    i8 = document.getElementById("image8");
-    i9 = document.getElementById("image9");
-    i10 = document.getElementById("image10");
-    i11= document.getElementById("image11");
-    i12 = document.getElementById("image12");
-    i13 = document.getElementById("image13");
-    i14 = document.getElementById("image14");
-    i15 = document.getElementById("image15");
-    i16= document.getElementById("image16");
+let cards = [1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8];
+let actualCard = [];
+let flipped = [];
+let pair = [];
+
+randomizeCards();
+for (i = 0; i < cards.length; i ++) {
+    let thingy = document.getElementById("image" + (i + 1)); 
+    thingy.dataset.photoid = cards[i];
+    thingy.dataset.id = i;
+    thingy.dataset.flipped = false;
+    actualCard.push(thingy);
 }
 
-for (i = 1; i <= 16; i++) {
-    document.getElementById("image" + i).addEventListener('click', function {
-        flip("image" + i);
+for (let cards of actualCard){
+    cards.addEventListener('click', function() {
+        if (cards.dataset.flipped === "false"){
+            flip(cards);
+        }
     })
 }
 
-
-
-
-
-
-let cards = ["i1", "i2"]
 function randomizeCards() {
-
-}
-function flipcard() {
-
-}
-
-function match(c1, c2){
-    let matching = first.dataset
+    for (let i = cards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [cards[i], cards[j]] = [cards[j], cards[i]];
+    }
 }
 
-function removeCards(){
-
+function flip(element) {
+    if (pair.length < 2) {
+        pair.push(element);
+        element.setAttribute("src", element.dataset.photoid + ".jpg");
+    }   
+    if (pair.length == 2){
+        if ((pair[0].dataset.photoid === pair[1].dataset.photoid) === true) {
+            console.log("SUPRISE");
+            flipped.push(pair[0], pair[1]);
+            pair[0].dataset.flipped = true;
+            pair[1].dataset.flipped = true;
+            pair = [];
+        }else {
+            setTimeout(function(){
+                for (let card of pair){
+                    card.setAttribute("src", "mystery.png");
+                }
+                pair = [];}, 1000);
+        }
+    }
 }
-
-

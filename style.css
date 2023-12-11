@@ -12,15 +12,14 @@ body {
 #images{
     display: grid;
     grid-row-start: 1;
-    grid-row-end: 5;
     grid-column-start: 2;
-    grid-column-end: 9;
-    grid-template-columns: 20% 20% 20% 20%;
-    grid-template-rows: 20% 20% 20% 20%;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 25% 25% 25% 25%;
     height: 50%;
     width: 50%;
     margin: 10px;
     padding: 10px;
+    place-content: center;
 }
 
 img{
@@ -32,10 +31,36 @@ img{
 
 h1{
     grid-row-start: 1;
-    grid-row-end: 2;
     grid-column-start: 4;
-    grid-column-end: 9;
     text-align: center;
     background-color: aquamarine;
     border: 8px solid black;
+}
+
+#container{
+    display: flex;
+    justify-content: center;
+}
+
+#scoreboard{
+    display:flex;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 600px){
+    body{
+        background-color: lightgreen;
+    }
+    #images{
+        width: 75%;
+    }
+}
+
+@media only screen and (max-width: 800px){
+    body{
+        background-color: lightsalmon;
+    }
+    #images{
+        width: 75%;
+    }
 }
